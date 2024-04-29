@@ -39,9 +39,37 @@
 	[tc,xc]	=	ode23('EqMotion',tspan,xo);
 
 %	d) Effect of Further Increase in Initial Velocity
-	xo		=	[3*V;0;H;R];
+	xo  	=   [3*V;0;H;R];
 	[td,xd]	=	ode23('EqMotion',tspan,xo);
-	
+
+    xo = [2;Gam;H;R];
+    [te,xe] = ode23('EqMotion',tspan,xo);
+    xo = [7.5;Gam;H;R];
+    [tf,xf] = ode23('EqMotion',tspan,xo);
+    xo = [3.55;Gam;H;R];
+    [tg,xg] = ode23('EqMotion',tspan,xo);
+    
+    xo = [V;-0.5;H;R];
+    [th,xh] = ode23('EqMotion',tspan,xo);
+    xo = [V;0.4;H;R];
+    [ti,xi] = ode23('EqMotion',tspan,xo);
+    xo = [V;-0.18;H;R];
+    [tj,xj] = ode23('EqMotion',tspan,xo);
+
+    figure
+    subplot(2,1,1)
+    plot(xe(:,4),xe(:,3), 'r')
+    hold on
+    plot(xf(:,4),xf(:,3), 'g')
+    plot(xg(:,4),xg(:,3), 'k')
+    xlabel('Range, m'), ylabel('Height, m'), grid
+    subplot(2,1,2)
+    plot(xh(:,4),xh(:,3), 'r')
+    hold on
+    plot(xi(:,4),xi(:,3), 'g')
+    plot(xj(:,4),xj(:,3), 'k')
+	xlabel('Range, m'), ylabel('Height, m'), grid
+
 	figure
 	plot(xa(:,4),xa(:,3),xb(:,4),xb(:,3),xc(:,4),xc(:,3),xd(:,4),xd(:,3))
 	xlabel('Range, m'), ylabel('Height, m'), grid
