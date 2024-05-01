@@ -43,11 +43,30 @@
 	[td,xd]	=	ode23('EqMotion',tspan,xo);
     
     r_tspan = [0 1 2 3 4 5 6];
+    V_height = [];
+    V_range = [];
+    V_time = [];
+    for i = 1:14
+        V_time = [V_time, r_tspan];
+    end
+    V_time = [V_time, 0 1];
     for i = 1:100
         r = 2.5+(7.5-2.5)*rand(1);
         xo = [r;Gam;H;R];
         [tr, xr] = ode23('EqMotion',tspan,xo);
+        V_height = [V_height,{xr(:,3)}];
+        V_range = [V_range,{xr(:,4)}];
         plot(xr(:,4),xr(:,3), 'r')
+        hold on
+        xlabel('Range, m'), ylabel('Height, m'), grid
+    end
+
+    figure
+    for i = 1:100
+        r = -0.5+(0.4+0.5)*rand(1);
+        xo = [V;r;H;R];
+        [tq, xq] = ode23('EqMotion',tspan,xo);
+        plot(xq(:,4),xq(:,3), 'b')
         hold on
         xlabel('Range, m'), ylabel('Height, m'), grid
     end
@@ -66,34 +85,34 @@
     xo = [V;-0.18;H;R];
     [tj,xj] = ode23('EqMotion',tspan,xo);
 
-    figure
-    subplot(2,1,1)
-    plot(xe(:,4),xe(:,3), 'r')
-    hold on
-    plot(xf(:,4),xf(:,3), 'g')
-    plot(xg(:,4),xg(:,3), 'k')
-    xlabel('Range, m'), ylabel('Height, m'), grid
-    subplot(2,1,2)
-    plot(xh(:,4),xh(:,3), 'r')
-    hold on
-    plot(xi(:,4),xi(:,3), 'g')
-    plot(xj(:,4),xj(:,3), 'k')
-	xlabel('Range, m'), ylabel('Height, m'), grid
-
-	figure
-	plot(xa(:,4),xa(:,3),xb(:,4),xb(:,3),xc(:,4),xc(:,3),xd(:,4),xd(:,3))
-	xlabel('Range, m'), ylabel('Height, m'), grid
-
-	figure
-	subplot(2,2,1)
-	plot(ta,xa(:,1),tb,xb(:,1),tc,xc(:,1),td,xd(:,1))
-	xlabel('Time, s'), ylabel('Velocity, m/s'), grid
-	subplot(2,2,2)
-	plot(ta,xa(:,2),tb,xb(:,2),tc,xc(:,2),td,xd(:,2))
-	xlabel('Time, s'), ylabel('Flight Path Angle, rad'), grid
-	subplot(2,2,3)
-	plot(ta,xa(:,3),tb,xb(:,3),tc,xc(:,3),td,xd(:,3))
-	xlabel('Time, s'), ylabel('Altitude, m'), grid
-	subplot(2,2,4)
-	plot(ta,xa(:,4),tb,xb(:,4),tc,xc(:,4),td,xd(:,4))
-	xlabel('Time, s'), ylabel('Range, m'), grid
+    % figure
+    % subplot(2,1,1)
+    % plot(xe(:,4),xe(:,3), 'r')
+    % hold on
+    % plot(xf(:,4),xf(:,3), 'g')
+    % plot(xg(:,4),xg(:,3), 'k')
+    % xlabel('Range, m'), ylabel('Height, m'), grid
+    % subplot(2,1,2)
+    % plot(xh(:,4),xh(:,3), 'r')
+    % hold on
+    % plot(xi(:,4),xi(:,3), 'g')
+    % plot(xj(:,4),xj(:,3), 'k')
+	% xlabel('Range, m'), ylabel('Height, m'), grid
+    % 
+	% figure
+	% plot(xa(:,4),xa(:,3),xb(:,4),xb(:,3),xc(:,4),xc(:,3),xd(:,4),xd(:,3))
+	% xlabel('Range, m'), ylabel('Height, m'), grid
+    % 
+	% figure
+	% subplot(2,2,1)
+	% plot(ta,xa(:,1),tb,xb(:,1),tc,xc(:,1),td,xd(:,1))
+	% xlabel('Time, s'), ylabel('Velocity, m/s'), grid
+	% subplot(2,2,2)
+	% plot(ta,xa(:,2),tb,xb(:,2),tc,xc(:,2),td,xd(:,2))
+	% xlabel('Time, s'), ylabel('Flight Path Angle, rad'), grid
+	% subplot(2,2,3)
+	% plot(ta,xa(:,3),tb,xb(:,3),tc,xc(:,3),td,xd(:,3))
+	% xlabel('Time, s'), ylabel('Altitude, m'), grid
+	% subplot(2,2,4)
+	% plot(ta,xa(:,4),tb,xb(:,4),tc,xc(:,4),td,xd(:,4))
+	% xlabel('Time, s'), ylabel('Range, m'), grid
