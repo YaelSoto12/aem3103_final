@@ -41,36 +41,8 @@
 %	d) Effect of Further Increase in Initial Velocity
 	xo  	=   [3*V;0;H;R];
 	[td,xd]	=	ode23('EqMotion',tspan,xo);
-    
-    r_tspan = [0 1 2 3 4 5 6];
-    V_height = [];
-    V_range = [];
-    V_time = [];
-    for i = 1:14
-        V_time = [V_time, r_tspan];
-    end
-    V_time = [V_time, 0 1];
-    for i = 1:100
-        r = 2.5+(7.5-2.5)*rand(1);
-        xo = [r;Gam;H;R];
-        [tr, xr] = ode23('EqMotion',tspan,xo);
-        V_height = [V_height,{xr(:,3)}];
-        V_range = [V_range,{xr(:,4)}];
-        plot(xr(:,4),xr(:,3), 'r')
-        hold on
-        xlabel('Range, m'), ylabel('Height, m'), grid
-    end
 
-    figure
-    for i = 1:100
-        r = -0.5+(0.4+0.5)*rand(1);
-        xo = [V;r;H;R];
-        [tq, xq] = ode23('EqMotion',tspan,xo);
-        plot(xq(:,4),xq(:,3), 'b')
-        hold on
-        xlabel('Range, m'), ylabel('Height, m'), grid
-    end
-
+% 2
     xo = [2;Gam;H;R];
     [te,xe] = ode23('EqMotion',tspan,xo);
     xo = [7.5;Gam;H;R];
@@ -84,7 +56,36 @@
     [ti,xi] = ode23('EqMotion',tspan,xo);
     xo = [V;-0.18;H;R];
     [tj,xj] = ode23('EqMotion',tspan,xo);
+    
 
+% 3 and 4
+    step = transpose(0:0.05:6);
+    time_step = [];
+    Range = [];
+    Height = [];
+    
+    for i = 1:100
+        V_r = 2.5+(7.5-2.5)*rand(1);
+        Gam_r = -0.5+(0.4+0.5)*rand(1);
+        xo = [V_r;Gam_r;H;R];
+        [tr, xr] = ode23('EqMotion',step,xo);
+        Range = [Range, transpose(xr(:,4))];
+        Height = [Height, transpose(xr(:,3))];
+        time_step = [time_step, transpose(step)];
+        plot(xr(:,4),xr(:,3), 'r')
+        hold on
+        xlabel('Range, m'), ylabel('Height, m'), grid
+    end
+    
+    Range = Range';
+    Height = Height';
+    time_step = time_step';
+
+% 5
+    
+    poly();
+
+    
     % figure
     % subplot(2,1,1)
     % plot(xe(:,4),xe(:,3), 'r')
