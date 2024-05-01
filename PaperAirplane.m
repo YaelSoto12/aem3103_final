@@ -60,7 +60,7 @@
 
 % 3 and 4
     step = transpose(0:0.05:6);
-    time_step = [];
+    time = [];
     Range = [];
     Height = [];
     
@@ -71,7 +71,7 @@
         [tr, xr] = ode23('EqMotion',step,xo);
         Range = [Range, transpose(xr(:,4))];
         Height = [Height, transpose(xr(:,3))];
-        time_step = [time_step, transpose(step)];
+        time = [time, transpose(step)];
         plot(xr(:,4),xr(:,3), 'r')
         hold on
         xlabel('Range, m'), ylabel('Height, m'), grid
@@ -79,13 +79,16 @@
     
     Range = Range';
     Height = Height';
-    time_step = time_step';
+    time = time';
 
 % 5
     
-    poly();
+    p = polyfit(Range, Height, 6);
+    disp(p);
+    y_fit = polyval(p, Range);
+    plot(Range, y_fit, 'k')
 
-    
+
     % figure
     % subplot(2,1,1)
     % plot(xe(:,4),xe(:,3), 'r')
