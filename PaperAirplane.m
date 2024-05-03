@@ -81,12 +81,13 @@
     Height = Height';
     time = time';
 
-% 5
-    
-    p = polyfit(Range, Height, 6);
-    disp(p);
-    y_fit = polyval(p, Range);
-    plot(Range, y_fit, 'k')
+% 5 
+    p1 = polyfit(time, Height, 6);
+    p2 = polyfit(time, Range, 6);
+    time_array = 0:0.05:6;
+    height_fit = polyval(p1, time_array);
+    range_fit = polyval(p2, time_array);
+    plot(range_fit, height_fit, 'k')
 
 
     % figure
