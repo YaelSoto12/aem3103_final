@@ -29,7 +29,8 @@
   the average trajectory ofthe 100 runs.
 
  ## Fig. 3: Time Derivatives
- ![Screenshot 2024-05-06 145707](https://github.com/YaelSoto12/aem3103_final/assets/167140630/583ff7d4-3e73-45d0-b1ec-d4b36d29a4c4)
+<img width="398" alt="Screenshot 2024-05-06 145910" src="https://github.com/YaelSoto12/aem3103_final/assets/167140630/bb462415-cb94-4ad3-a7ee-697fc8382c22">
+
 
 
  The rate of climb speed decrases with time, but the velocity of the plane increases after around one second.
