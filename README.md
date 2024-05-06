@@ -10,8 +10,7 @@
   An increase in velocity and flight path angle will increase the height and range. The plane will want to peak in height      between 0 to 5 meters in range. 
  
   # Code Listing 
-  [EqMotion.m](EqMotion.m)
-  Takes in velocity, flight path angle to find the height and range of the Paper Airplane
+  [EqMotion.m](EqMotion.m) takes in velocity, flight path angle to find the height and range of the Paper Airplane
 
   # Figures
 
