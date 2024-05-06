@@ -11,7 +11,7 @@
  
   # Code Listing
   EqMotion.m 
-  [a relative link](EqMotion.md)
+  [a relative link](EqMotion.m)
   Takes in velocity, flight path angle to find the height and range of the Paper Airplane
 
   # Figures
