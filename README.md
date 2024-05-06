@@ -4,14 +4,10 @@
   - By: Yael Soto-Adolfo
 
   ## Summary of Findings
-  
+  Table:
 
-  Summarized what was accomplished in this study.  Describe 2-4 observations from simulating the flight path.
-  Reference the figures below as needed.
   This study analysis the changes of the height and range depending on the changes in velocity and flight path angle.
   An increase in velocity and flight path angle will increase the height and range. The plane will want to peak in height      between 0 to 5 meters in range. 
-
-  *If the analysis falls short of the goal, this is your chance to explain what was done or what were the barriers.*
  
   # Code Listing
   A list of each function/script and a single-line description of what it does. The name of the function/script should link to the file in the repository on GitHub.
