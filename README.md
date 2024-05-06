@@ -8,11 +8,13 @@
 
   Summarized what was accomplished in this study.  Describe 2-4 observations from simulating the flight path.
   Reference the figures below as needed.
+  This study analysis the changes of the height and range depending on the changes in velocity and flight path angle.
+  An increase in velocity and flight path angle will increase the height and range. The plane will want to peak in height      between 0 to 5 meters in range. 
 
   *If the analysis falls short of the goal, this is your chance to explain what was done or what were the barriers.*
  
   # Code Listing
-  A list of each function/script and a single-line description of what it does.  The name of the function/script should link to the file in the repository on GitHub.
+  A list of each function/script and a single-line description of what it does. The name of the function/script should link to the file in the repository on GitHub.
 
   # Figures
 
@@ -20,14 +22,16 @@
   <2D trajectory simulated by varying single parameter at at time>
   <The above plot should also show the nominal trajectory>
 
-  Briefly describe what is being shown in the figure.
+  The top graph is being changing with repect to velocity and the bottom graph is being changed with respect to path angle.
+  The velocity of the plane has a greater impact on height than the flight path angle, the ranges are almost the same.
 
   ## Fig. 2: Monte Carlo Simulation
   <2D trajectories simulated using random sampling of parameters, overlay polynomial fit onto plot.>
 
-  Briefly describe what is being shown in the figure.
+  The 100 runs show a consistant trend of having a max height between 0 to 5 meters of range and the polynomial showing the
+  the average trajectory ofthe 100 runs.
 
  ## Fig. 3: Time Derivatives
  <Time-derivative of height and range for the fitted trajectory>
 
-  Briefly describe what is being shown in the figure.
+ The rate of climb speed decrases with time, but the velocity of the plane increases after around one second.
